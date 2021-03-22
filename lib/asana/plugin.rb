@@ -32,8 +32,11 @@ module Danger
 
       issues.each do |issue|
         task = find_by_id(issue)
-        puts task
-        messages << "*[#{task.name}](#{task.permalink_url})*\n#{task.notes}\n"
+
+        unless task.nil?
+          puts task
+          messages << "*[#{task.name}](#{task.permalink_url})*\n#{task.notes}\n"
+        end
       end
 
       markdown messages.join("\n")
@@ -77,6 +80,9 @@ module Danger
 
     def find_by_id(id)
       @client.tasks.find_by_id(id)
+    rescue Asana::Errors::NotFound
+      puts "task #{id} not found"
+      return nil
     end
   end
 end
