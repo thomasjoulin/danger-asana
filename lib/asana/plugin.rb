@@ -28,14 +28,16 @@ module Danger
     def check
       issues = find_asana_issues
 
-      messages = []
+      messages = [
+        "Asana tasks in this PR |",
+        "--- |"
+      ]
 
       issues.each do |issue|
         task = find_by_id(issue)
 
         unless task.nil?
-          puts task
-          messages << "*[#{task.name}](#{task.permalink_url})*\n#{task.notes}\n"
+          messages << "**[#{task.name}](#{task.permalink_url})**\n#{task.notes} |"
         end
       end
 

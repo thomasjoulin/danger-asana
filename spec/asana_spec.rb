@@ -24,12 +24,12 @@ module Danger
 
         @asana.check
 
-        expect(@dangerfile.status_report[:markdowns].first.message).to eq(%(*[task 1](https://app.asana.com/0/1)*
-description 1
-
-*[task 2](https://app.asana.com/0/2)*
-description 2
-))
+        expect(@dangerfile.status_report[:markdowns].first.message).to eq(%(Asana tasks in this PR |
+--- |
+**[task 1](https://app.asana.com/0/1)**
+description 1 |
+**[task 2](https://app.asana.com/0/2)**
+description 2 |))
       end
     end
   end
