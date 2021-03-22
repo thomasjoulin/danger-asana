@@ -8,8 +8,15 @@ A description of danger-asana.
 
 ## Usage
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `asana` namespace.
+In your Dangerfile:
+
+```ruby
+asana.check(
+  search_title: true,
+  search_commits: true,
+  search_commits: true,
+)
+```
 
 ## Development
 
