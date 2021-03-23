@@ -1,6 +1,6 @@
 # danger-asana
 
-A description of danger-asana.
+A [Danger](https://github.com/danger/danger) plugin for that links Asana issues to pull requests for both GitHub and GitLab.
 
 ## Installation
 
