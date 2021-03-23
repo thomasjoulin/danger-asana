@@ -28,10 +28,7 @@ module Danger
     def check
       issues = find_asana_issues
 
-      messages = [
-        "Asana tasks in this PR |",
-        "--- |"
-      ]
+      messages = []
 
       issues.each do |issue|
         task = find_by_id(issue)
@@ -41,7 +38,16 @@ module Danger
         end
       end
 
-      markdown messages.join("\n")
+      unless messages.empty?
+        header = [
+          "Asana tasks in this PR |",
+          "--- |"
+        ]
+
+        markdown header
+          .concat(messages)
+          .join("\n")
+      end
     end
 
     private
