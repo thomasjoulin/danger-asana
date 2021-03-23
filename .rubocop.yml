@@ -233,3 +233,6 @@ Style/RedundantArgument:
 
 Style/SwapValues:
   Enabled: true
+
+Style/Next:
+  Enabled: false
