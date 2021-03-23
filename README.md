@@ -18,6 +18,8 @@ asana.check(
 )
 ```
 
+Generate a [Personal Access Token](https://developers.asana.com/docs/personal-access-token) on Asana and add it as en environment variable `_ASANA_TOKEN`
+
 ## Development
 
 1. Clone this repo
