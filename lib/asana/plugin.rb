@@ -85,7 +85,7 @@ module Danger
         end
       end
 
-      return asana_issues.uniq
+      return asana_issues.flatten.uniq
     end
 
     def find_by_id(id)
