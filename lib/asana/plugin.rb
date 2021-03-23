@@ -59,27 +59,29 @@ module Danger
     end
 
     def find_asana_issues(search_title: true, search_commits: true, search_body: true)
-      regexp = Regexp.new(/\[#([^\]]+)\]/)
+      regexps = [/\[#([^\]]+)\]/, %r{(?:https://)?app\.asana\.com/0/[0-9]+/([0-9]+)}x]
 
       asana_issues = []
 
-      if search_title
-        vcs_host.pr_title.gsub(regexp) do |match|
-          asana_issues << Regexp.last_match(1)
-        end
-      end
-
-      if search_commits
-        git.commits.map do |commit|
-          commit.message.gsub(regexp) do |match|
-            asana_issues << Regexp.last_match(1)
+      regexps.each do |regexp|
+        if search_title
+          vcs_host.pr_title.scan(regexp) do |match|
+            asana_issues << match
           end
         end
-      end
 
-      if search_body
-        vcs_host.pr_body.gsub(regexp) do |match|
-          asana_issues << Regexp.last_match(1)
+        if search_commits
+          git.commits.map do |commit|
+            commit.message.scan(regexp) do |match|
+              asana_issues << match
+            end
+          end
+        end
+
+        if search_body
+          vcs_host.pr_body.scan(regexp) do |match|
+            asana_issues << match
+          end
         end
       end
 
