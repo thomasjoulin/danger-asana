@@ -34,7 +34,10 @@ module Danger
         task = find_by_id(issue)
 
         unless task.nil?
-          messages << "**[#{task.name}](#{task.permalink_url})**\n#{task.notes} |"
+          name = task.name[0..300].gsub("\n", "<br />").strip
+          notes = task.notes[0..300].gsub("\n", "<br />").strip
+
+          messages << "**[#{name}](#{task.permalink_url})**\n#{notes} |"
         end
       end
 
