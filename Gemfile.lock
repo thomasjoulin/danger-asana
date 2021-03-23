@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    danger-asana (0.0.2)
+    danger-asana (0.0.3)
       asana (~> 0.10)
       danger-plugin-api (~> 1.0)
 
