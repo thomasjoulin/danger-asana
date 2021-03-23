@@ -161,11 +161,11 @@ DEPENDENCIES
   guard (~> 2.14)
   guard-rspec (~> 4.7)
   listen (= 3.0.7)
-  pry
+  pry (~> 0.14)
   rake (~> 10.0)
   rspec (~> 3.4)
-  rubocop
-  yard
+  rubocop (~> 1.11)
+  yard (~> 0.9)
 
 BUNDLED WITH
-   2.1.4
+   2.2.15
