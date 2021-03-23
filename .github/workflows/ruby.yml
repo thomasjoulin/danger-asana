@@ -31,4 +31,4 @@ jobs:
     - name: Run tests
       env:
         _ASANA_TOKEN: ${{ secrets._ASANA_TOKEN }}
-      run: bundle exec rake
+      run: bundle exec rake spec
