@@ -62,7 +62,7 @@ module Danger
     end
 
     def find_asana_issues(search_title: true, search_commits: true, search_body: true)
-      regexps = [/\[#([^\]]+)\]/, %r{(?:https://)?app\.asana\.com/0/[0-9]+/([0-9]+)}x]
+      regexps = [/\[#+([^\]]+)\]/, %r{(?:https://)?app\.asana\.com/0/[0-9]+/([0-9]+)}x]
 
       asana_issues = []
 
